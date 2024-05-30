@@ -1,0 +1,16 @@
+<div cdkDropListGroup class="example-wrapper">
+
+  <div class="example-container" *ngFor="let elem of displayedColumns">
+    <h2>{{elem.day}}</h2>
+    <h3>{{elem.currentDate | date: 'dd'}}</h3>
+
+    <div cdkDropList [cdkDropListData]="elem.events" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div mat-raised-button (click)="openDialog(item)" class="example-box" *ngFor="let item of elem.events" cdkDrag>
+        {{item.event}}
+        <br>
+        {{item.time | date: 'dd.MM.yyyy HH:mm:ss'}}
+      </div>
+    </div>
+  </div>
+
+</div>

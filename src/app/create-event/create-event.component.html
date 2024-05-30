@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Hi {{data.event}}</h1>
+<div mat-dialog-content>
+  <p>Please add event</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Event Name</mat-label>
+    <input matInput [(ngModel)]="data.event">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Event Date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.time">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <p>TEESST {{data.canRemove}}</p>
+</div>
+<div mat-dialog-actions>
+
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [matDialogClose] cdkFocusInitial (click)="onClose()">Ok</button>
+  <button *ngIf="data.canRemove" mat-button color="warn" [matDialogClose] cdkFocusInitial
+    (click)="onDelete(data.id)">DELETE</button>
+</div>
