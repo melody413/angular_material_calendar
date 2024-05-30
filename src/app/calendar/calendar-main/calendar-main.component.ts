@@ -1,3 +1,5 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   CdkDragDrop,
@@ -192,7 +194,7 @@ export class CalendarMainComponent implements OnInit, OnDestroy {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed', result);
     });
   }
 

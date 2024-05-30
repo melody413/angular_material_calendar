@@ -21,6 +21,7 @@ export class CalendarSidebarComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
   public valueChanged(event: any) {
     this.dateChangeService.selectedDate$.next(new Date(event));
   }
